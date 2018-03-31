@@ -80,8 +80,17 @@ public class ColorsActivity extends AppCompatActivity {
 
                 // Setup a listener on the media release
                 mMediaPlayer.setOnCompletionListener(mCompletionListener);
+
             }
+
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //When the activity is stopped, release the media plater resources because we wont be playing sounds.
+        releaseMediaPlayer();
     }
 
     /**
